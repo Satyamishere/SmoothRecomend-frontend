@@ -18,7 +18,8 @@ function App() {
     setResults(null);
 
     try {
-      const response = await fetch(`${API_URL}/getHolidayOptions`, {
+      // FIXED: Using API_BASE_URL instead of the undefined API_URL
+      const response = await fetch(`${API_BASE_URL}/getHolidayOptions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: query })
@@ -32,7 +33,8 @@ function App() {
         setError("No trips found matching your criteria. Try adjusting your budget or preferences!");
       }
     } catch (err) {
-      setError(`Unable to connect to backend at ${API_URL}. Make sure the service is running and CORS is configured.`);
+      // FIXED: Using API_BASE_URL instead of the undefined API_URL
+      setError(`Unable to connect to backend at ${API_BASE_URL}. Make sure the service is running and CORS is configured.`);
       console.error(err);
     } finally {
       setLoading(false);
