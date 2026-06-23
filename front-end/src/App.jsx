@@ -18,7 +18,7 @@ function App() {
     setResults(null);
 
     try {
-      // FIXED: Using API_BASE_URL instead of the undefined API_URL
+      
       const response = await fetch(`${API_BASE_URL}/getHolidayOptions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -58,9 +58,9 @@ function App() {
       </div>
 
       <div className="app-container">
-        {/* Header Section */}
+        
         <div className={`hero-section ${results ? 'compact' : 'full'}`}>
-          {/* Brand */}
+         
           <div className="brand-header">
             <div className="brand-icon-wrapper">
               <Sparkles className="brand-icon" />
@@ -69,7 +69,7 @@ function App() {
             <h1 className="brand-title">TravelGenie</h1>
           </div>
 
-          {/* Hero Title */}
+          
           <h2 className={`hero-title ${results ? 'small' : 'large'}`}>
             {results ? (
               <span className="gradient-text">Your Perfect Trips Await ✨</span>
@@ -81,7 +81,7 @@ function App() {
             )}
           </h2>
 
-          {/* Search Bar */}
+          
           <div className="search-wrapper">
             <div className="search-container">
               <div className="search-glow"></div>
@@ -115,7 +115,7 @@ function App() {
             )}
           </div>
 
-          {/* Feature Pills */}
+          
           {!results && !loading && (
             <div className="features-container">
               {features.map((feature, i) => (
@@ -146,7 +146,7 @@ function App() {
                     <div className="card-image-overlay"></div>
                   </div>
                   
-                  {/* Match Badge */}
+                  
                   <div className={`match-badge ${
                     trip.score >= 85 ? 'excellent' : 
                     trip.score >= 70 ? 'good' : 
@@ -156,16 +156,16 @@ function App() {
                     {trip.score}% Match
                   </div>
 
-                  {/* Destination */}
+                  
                   <div className="destination-label">
                     <MapPin className="destination-icon" />
                     <h3 className="destination-name">{trip.destination}</h3>
                   </div>
                 </div>
 
-                {/* Card Content */}
+                
                 <div className="card-content">
-                  {/* Price & Duration */}
+                  
                   <div className="card-header">
                     <div className="trip-price">
                       ₹{trip.totalCost?.toLocaleString() || '0'}
@@ -176,7 +176,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Flight Info */}
+                  
                   <div className="info-card">
                     <div className="info-card-inner">
                       <div className="info-icon-box blue">
@@ -191,7 +191,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Hotel Info */}
+                 
                   <div className="info-card">
                     <div className="info-card-inner">
                       <div className="info-icon-box purple">
@@ -212,7 +212,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Activities */}
+                  
                   {trip.activities && trip.activities.length > 0 && (
                     <div className="activities-section">
                       <p className="activities-label">Suggested Activities</p>
@@ -226,17 +226,14 @@ function App() {
                     </div>
                   )}
 
-                  {/* Book Button */}
-                  <button className="book-button">
-                    View Full Details
-                  </button>
+                 
                 </div>
               </div>
             ))}
           </div>
         )}
 
-        {/* Loading State */}
+        
         {loading && (
           <div className="loading-container">
             <div className="loading-spinner-wrapper">
